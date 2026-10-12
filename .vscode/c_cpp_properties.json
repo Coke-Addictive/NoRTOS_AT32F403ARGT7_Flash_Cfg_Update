@@ -2,7 +2,7 @@
     "configurations": [
         {
             "name": "AT32F403ARGT7_Flash_Cfg_Update",
-            "cStandard": "c90",
+            "cStandard": "c11",
             "cppStandard": "c++11",
             "compilerArgs": [
                 "--target=arm-arm-none-eabi"
@@ -19,7 +19,8 @@
                 "project/inc",
                 "Treo/Driver",
                 "Treo/App",
-                "Treo/System"
+                "Treo/System",
+                "Treo/Common"
             ],
             "defines": [
                 "AT32F403ARGT7",

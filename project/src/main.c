@@ -26,12 +26,14 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "at32f403a_407_wk_config.h"
+#include "wk_crc.h"
 #include "wk_debug.h"
+#include "wk_usart.h"
 #include "wk_system.h"
 
 /* private includes ----------------------------------------------------------*/
 /* add user code begin private includes */
-
+#include "debug.h"
 /* add user code end private includes */
 
 /* private typedef -----------------------------------------------------------*/
@@ -92,8 +94,13 @@ int main(void)
      void wk_delay_ms(uint32_t delay); */
   wk_timebase_init();
 
-  /* add user code begin 2 */
+  /* uart4 already supports printf. */
+  /* init uart4 function. */
+  wk_uart4_init();
 
+  /* add user code begin 2 */
+  Debug_Init();
+  Debug_RunOnce();
   /* add user code end 2 */
 
   while(1)

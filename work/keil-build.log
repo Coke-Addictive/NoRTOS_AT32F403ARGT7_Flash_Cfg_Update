@@ -1,0 +1,15 @@
+*** Using Compiler 'V6.24', folder: 'C:\My_Software\Arm\Keil\ARM\ARMCLANG\Bin'
+Build target 'AT32F403ARGT7_Flash_Cfg_Update'
+assembling startup_at32f403a_407.s...
+linking...
+Program Size: Code=7208 RO-data=2696 RW-data=8 ZI-data=4624  
+FromELF: creating hex file...
+After Build - User command #1: ./Keil5_disp_size_bar.exe
+ram:
+  RW_IRAM1 :0x20000000
+   96.00 KB :|____________________|    4.71 % (    4.52 KB /    96.00 KB) [93672 B]
+flash:
+  ER_IROM1 :0x8000000
+    1.00 MB :|____________________|    0.94 % (    0.01 MB /     1.00 MB) [1038672 B]
+".\objects\AT32F403ARGT7_Flash_Cfg_Update.axf" - 0 Error(s), 0 Warning(s).
+Build Time Elapsed:  00:00:01

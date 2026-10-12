@@ -29,6 +29,7 @@
 extern "C" {
 #endif
 
+#include <stdio.h>
 #include "at32f403a_407.h"
 
 void wk_timebase_init(void);

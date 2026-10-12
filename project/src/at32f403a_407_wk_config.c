@@ -162,6 +162,9 @@ void wk_system_clock_config(void)
   */
 void wk_periph_clock_config(void)
 {
+  /* enable crc periph clock */
+  crm_periph_clock_enable(CRM_CRC_PERIPH_CLOCK, TRUE);
+
   /* enable iomux periph clock */
   crm_periph_clock_enable(CRM_IOMUX_PERIPH_CLOCK, TRUE);
 
@@ -170,6 +173,9 @@ void wk_periph_clock_config(void)
 
   /* enable gpioc periph clock */
   crm_periph_clock_enable(CRM_GPIOC_PERIPH_CLOCK, TRUE);
+
+  /* enable uart4 periph clock */
+  crm_periph_clock_enable(CRM_UART4_PERIPH_CLOCK, TRUE);
 }
 
 /**

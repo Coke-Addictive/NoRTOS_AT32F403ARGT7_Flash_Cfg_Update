@@ -449,8 +449,7 @@ Drv_Flash_Result_t Drv_Flash_Write(uint32_t address, const void *data, size_t da
  *
  * @note Drv_Flash_Write() 继续保持严格模式，本函数只是建立在严格接口之上的便利封装。
  * @note 如果 data_size 已经是 4 的整数倍，本函数直接调用 Drv_Flash_Write()。
- * @note 如果存在 1/2/3 字节尾巴，本函数先写入对齐主体，再把尾巴和 0xFF
- *       组成一个完整的 32 位 word 写入。
+ * @note 如果存在 1/2/3 字节尾巴，本函数先写入对齐主体，再把尾巴和 0xFF 组成一个完整的 32 位 word 写入。
  * @note 本操作不是事务操作：对齐主体写入成功后，如果最后一个 word 写入失败，
  *       Flash 中可能保留已经写入的主体数据，调用方必须按失败处理。
  */
@@ -516,9 +515,7 @@ Drv_Flash_Result_t Drv_Flash_Write_Padded(uint32_t address, const void *data, si
     tail_word = DRV_FLASH_EMPTY_WORD;
     (void)memcpy(&tail_word, &bytes[body_size], tail_size);
 
-    return Drv_Flash_Write(address + (uint32_t)body_size,
-                           &tail_word,
-                           sizeof(tail_word));
+    return Drv_Flash_Write(address + (uint32_t)body_size, &tail_word, sizeof(tail_word));
 }
 
 

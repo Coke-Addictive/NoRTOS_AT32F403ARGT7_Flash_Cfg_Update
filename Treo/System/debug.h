@@ -2,6 +2,11 @@
 #define DEBUG_H_
 
 
+void Debug_Init(void);
+
+
+void Debug_RunOnce(void);
+
 
 
 

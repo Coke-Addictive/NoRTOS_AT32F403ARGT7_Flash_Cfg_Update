@@ -8,6 +8,11 @@
         <MCUName>AT32F403ARGT7</MCUName>
         <MCUPackage>LQFP64</MCUPackage>
     </MCUInfo>
+    <CRC>
+        <Mode>
+            <ModeSub name="CRC_State" value="TRUE"/>
+        </Mode>
+    </CRC>
     <CRM>
         <Mode>
             <ModeSub name="LEXT" value="LEXT-External-Oscillator"/>
@@ -25,12 +30,23 @@
     <SYSTEM>
         <Mode>
             <ModeSub name="Time_Base" value="SysTick"/>
+            <ModeSub name="UART_Printf" value="UART4"/>
         </Mode>
     </SYSTEM>
+    <UART4>
+        <Mode>
+            <ModeSub name="Mode" value="Asynchronous_TransmitOnly"/>
+        </Mode>
+        <Parameters>
+            <ParametersSub name="VirtualMode" value="VM_ASYNC_T"/>
+            <ParametersSub name="RealBaudRate" value="115163"/>
+        </Parameters>
+    </UART4>
     <NVIC>
         <SysTick_Handler>1;15;0;0;0;1</SysTick_Handler>
         <FLASH_IRQHandler>0;0;0;0;0;0</FLASH_IRQHandler>
         <CRM_IRQHandler>0;0;0;0;0;0</CRM_IRQHandler>
+        <UART4_IRQHandler>0;0;0;0;0;0</UART4_IRQHandler>
     </NVIC>
     <ClockConfiguration>
         <rtcsel>1</rtcsel>
@@ -56,6 +72,7 @@
         <PinSub pinname="PC15" signalname="CRM_LEXT_OUT" signaltype="2"/>
         <PinSub pinname="PA13" signalname="DEBUG_JTMS_SWDIO" signaltype="2"/>
         <PinSub pinname="PA14" signalname="DEBUG_JTCK_SWCLK" signaltype="2"/>
+        <PinSub pinname="PC10" signalname="UART4_TX" signaltype="2"/>
     </PINInfo>
     <ProjectInfomation>
         <ProjectName>AT32F403ARGT7_Flash_Cfg_Update</ProjectName>
@@ -68,8 +85,8 @@
         <CodeSplitIP>true</CodeSplitIP>
         <AddNecessaryFileFlag>false</AddNecessaryFileFlag>
         <DeletePriviousFiles>true</DeletePriviousFiles>
-        <MinHeapSize>0x200</MinHeapSize>
-        <MinStackSize>0x400</MinStackSize>
+        <MinHeapSize>0x800</MinHeapSize>
+        <MinStackSize>0x1000</MinStackSize>
         <UseFirmware>true</UseFirmware>
         <PackageVersion>V2.2.2</PackageVersion>
     </ProjectInfomation>
@@ -79,5 +96,7 @@
         <RankSub RankNum="4" FixPosFlag="TRUE" FuncName="wk_debug_config" InstanceName="DEBUG" CodeSection="debug function" MainDoNotCallFlag="FALSE"/>
         <RankSub RankNum="7" FixPosFlag="TRUE" FuncName="wk_nvic_config" InstanceName="NVIC" CodeSection="config nvic" MainDoNotCallFlag="FALSE"/>
         <RankSub RankNum="8" FixPosFlag="TRUE" FuncName="wk_timebase_init" InstanceName="SYSTEM" CodeSection="config timebase" MainDoNotCallFlag="FALSE"/>
+        <RankSub RankNum="75" FixPosFlag="FALSE" FuncName="wk_crc_init" InstanceName="CRC" CodeSection="crc function" MainDoNotCallFlag="TRUE"/>
+        <RankSub RankNum="35" FixPosFlag="FALSE" FuncName="wk_uart4_init" InstanceName="UART4" CodeSection="uart4 function" MainDoNotCallFlag="FALSE"/>
     </FunctionRankInfo>
 </Root>
